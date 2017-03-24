@@ -5,9 +5,13 @@
 \usepackage[numbers]{natbib}
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
+\usepackage{datetime}
+\usepackage{xspace}
+\usepackage{graphicx}
 
 \usepackage{titlesec}
 
+\newcommand{\code}[1]{\texttt{#1}}
 \newcommand{\DIASource}{\code{DIASource}\xspace}
 \newcommand{\DIASources}{\code{DIASources}\xspace}
 \newcommand{\DIAObject}{\code{DIAObject}\xspace}
@@ -22,7 +26,7 @@
 
 
 \begin{document}
-\date{\today, \currenttime hrs}
+\date{\today}
 \maketitle
 
 
@@ -50,7 +54,9 @@ corrected template for image differencing. This would be the ideal solution for
 handling the mixed-vendor focal plane.
 
 We have also sought to characterize the degradation of image differencing
-performance if a hybrid focal plane was used without such an algorithm in place.
+performance if a hybrid focal plane was used without such an algorithm in place
+\footnote{We do not address the effects on the annual Data
+Release Production, since the additional processing capability XXX}.
 A significant concern is that images of an object from one sensor type may be
 differenced against a template built from the other sensor type, leading to an
 artificial difference in flux that would be reported as a \DIASource even if the
@@ -92,8 +98,37 @@ large as 10-20 mmag. This could potentially create false positives at rates of
 similar order of magnitude, which makes this a significant concern.
 
 
-\footnote{we do not address the effects on the annual Data
-Release Production, since the additional processing capability XXX}.
 
+\section{Analysis}
+\begin{figure}
+\includegraphics[width=0.9\textwidth]{figures/delta_g_vs_color.pdf}
+\caption{\label{fig:delta_g_vs_color}}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=0.9\textwidth]{figures/delta_g_histogram.pdf}
+\caption{\label{fig:delta_g_histogram}}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=0.9\textwidth]{figures/delta_g_cumulative.pdf}
+\caption{\label{fig:delta_g_cumulative}}
+\end{figure}
+
+
+\begin{figure}
+\includegraphics[width=0.9\textwidth]{figures/false_positive_prob.pdf}
+\caption{\label{fig:false_positive_prob}}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=0.9\textwidth]{figures/false_positive_differential.pdf}
+\caption{\label{fig:false_positive_differential}}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=0.9\textwidth]{figures/fp_vs_flux_shift.pdf}
+\caption{\label{fig:fp_vs_flux_shift}}
+\end{figure}
 
 \end{document}
