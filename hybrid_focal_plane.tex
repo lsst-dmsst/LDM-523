@@ -102,33 +102,66 @@ similar order of magnitude, which makes this a significant concern.
 \section{Analysis}
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{figures/delta_g_vs_color.pdf}
-\caption{\label{fig:delta_g_vs_color}}
+\caption{Difference in g-band flux between measurements made on sensors from
+different vendors (``Sensor QE'', red stars), and between two different
+realizations of the g-band filter (``Filter shift''), where one filter
+realization was the baseline specification and the other had both red and blue
+cutoffs shifted by 1\% in wavelength (less than the 1.5\% specification). The
+sensor QE curves used measured throughputs from prototype sensors as early
+Spring 2017.
+\label{fig:delta_g_vs_color}}
 \end{figure}
 
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{figures/delta_g_histogram.pdf}
-\caption{\label{fig:delta_g_histogram}}
+\caption{Distribution of g-band magnitude shifts that would be when stars with a
+realistic $g-i$ color distribution were observed in the sensor and filter
+scenarios described in Figure~\ref{fig:delta_g_vs_color}. The mean g-band
+difference is removed when the two (hypothetical) images are matched in flux,
+but very red or very blue stars will exhibit flux differences of up to $\sim 20$
+mmag.
+\label{fig:delta_g_histogram}}
 \end{figure}
 
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{figures/delta_g_cumulative.pdf}
-\caption{\label{fig:delta_g_cumulative}}
+\caption{Cumulative distribution of Figure~\ref{fig:delta_g_histogram}. Roughly
+10-15\% of (unvarying) stars will exhibit $>7$ mmag g-band differences when
+images from the two sensor types are differenced, while 20\% of stars will show
+differences of $15$ mmag or greater if imaged by different filter bandpasses.
+\label{fig:delta_g_cumulative}}
 \end{figure}
 
 
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{figures/false_positive_prob.pdf}
-\caption{\label{fig:false_positive_prob}}
+\caption{Probability that a star at a given magnitude (unvarying) will be
+measured as exceeding the $5\sigma$ threshold for \DIASources, if there is a
+coherent flux difference between the two images that are differenced. These
+false positives are rejected at better than 1 in $10^6$ when the two images have
+the same bandpass and sensor QE curves, but when there are variations in the
+transmission curve, bright stars will be significantly more likely to exceed the
+$5\sigma$ threshold.
+\label{fig:false_positive_prob}}
 \end{figure}
 
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{figures/false_positive_differential.pdf}
-\caption{\label{fig:false_positive_differential}}
+\caption{This figure combines the false positive probabilities from
+Figure~\ref{fig:false_positive_prob} with the number density of objects at a
+given magnitude to show the total number of objects per square degree, per magnitude.
+Solid lines show star counts (computed at $l=180^\circ$, $b=-45^\circ$), while
+dashed lines show galaxies.
+\label{fig:false_positive_differential}}
 \end{figure}
 
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{figures/fp_vs_flux_shift.pdf}
-\caption{\label{fig:fp_vs_flux_shift}}
+\caption{Cumulative counts of false positives (stars exceeding $5\sigma$) as a
+function of coherent flux difference between observations. While shifts of up to
+12 mmag would not produce more false positives than the irreducible background
+level of $\sim 65$ per square degree, greater shifts will would rapidly produce
+significant numbers of false detections. \label{fig:fp_vs_flux_shift}}
 \end{figure}
 
 \end{document}
