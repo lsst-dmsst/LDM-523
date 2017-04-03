@@ -1,36 +1,33 @@
-% vim: tw=0:wrap:linebreak
-\documentclass[12pt]{article}
+\documentclass[DM]{lsstdoc}
 
-% \setcitestyle{numbers}
-\usepackage[numbers]{natbib}
-\usepackage[english]{babel}
-\usepackage[utf8x]{inputenc}
-\usepackage{datetime}
-\usepackage{xspace}
-\usepackage{graphicx}
-
-\usepackage{titlesec}
-
-\addtolength{\topmargin}{-.875in}
-\addtolength{\textheight}{1.5in}
-
-\newcommand{\code}[1]{\texttt{#1}}
-\newcommand{\DIASource}{\code{DIASource}\xspace}
-\newcommand{\DIASources}{\code{DIASources}\xspace}
-\newcommand{\DIAObject}{\code{DIAObject}\xspace}
-\newcommand{\DIAObjects}{\code{DIAObjects}\xspace}
-\newcommand{\SSObject}{\code{SSObject}\xspace}
-\newcommand{\SSObjects}{\code{SSObjects}\xspace}
-
-\title{Impact of a Hybrid Focal Plane on LSST Image Differencing}
+\title[Hybrid Focal Plane]{Impact of a Hybrid Focal Plane on LSST Image Differencing}
 
 \author{C. T. Slater, et al. }
 %R. L. Jones, M. Juri\'c, E. Bellm
 
+\setDocRef{LXX-nnn}
+\date{\today}
+\setDocRevision{TBD}
+\setDocStatus{Draft}
+
+\setDocAbstract{%
+The hybrid focal plane in the LSST camera is a potential source of false
+detections in image differencing due to difference between vendors in the sensor
+quantum efficiencies as a function of wavelength. We can evaluate the magnitude
+of this effect in a worst-case scenario (with no attempt at correction) by
+estimating the flux difference that would be measured between sensors, for a
+variety of stellar SEDs, and combining this with the expected density of sources
+at a given color and the probability that they will exceed the $5\sigma$
+detection threshold as a result of the measurement difference. Overall the
+sensor differences are small enough that only negligible numbers of false
+detections will result, but we note that the specifications for the filter
+transmission curve currently permit a level of spatial variations that could
+lead to a significant number of false detections.
+}
 
 \begin{document}
-\date{\today}
 \maketitle
+\pagenumbering{arabic}
 
 
 \section{Executive Summary}
@@ -47,7 +44,7 @@ depend on the spectral energy distribution of the object.
 This problem is analogous to the issue of differential chromatic refraction (DCR),
 where a similar sensitivity to the object's SED appears when an object is
 observed at varying airmass. DCR is very challenging since it induces an
-astrometric shift, rather than purely a photometric shift. DCR has been long
+astrometric shift in addition to a photometric difference. DCR has been long
 identified as a significant challenge for Data Management, and efforts at
 developing algorithms to correct for this effect are underway. It is very likely
 that an extension of the same algorithms designed for correcting DCR will also
@@ -69,13 +66,13 @@ cost, and potentially hamper the linking of moving object detections into
 We have evaluated the magnitude of the flux difference in g-band for various
 stellar SEDs. The shift can be ``calibrated out'' for stars of a mean color,
 since they will statistically set the zeropoint difference between the two
-exposures. But stars significantly bluer or redder than this median color will
+exposures. But stars significantly bluer or redder than this mean color will
 still exhibit flux shifts, and these are generally of order 5-10 mmag at most.
 To determine how many stars fall into these red and blue wings, we use a
-measured stellar color distribution from SDSS. Finally, for most faint stars
+measured stellar color distribution from SDSS. For most faint stars
 this shift will be lost in Poisson noise of the measurement, but bright stars
 will be measured well enough they will be more likely to cross the $5\sigma$
-threshold to be reported as a \DIASources. We therefore a modeled distribution
+threshold to be reported as a \DIASources. We therefore modeled a distribution
 of observed stellar magnitudes plus a model of the photometric uncertainties for
 stars with a given brightness and spurious flux difference (from the hybrid focal
 plane) to estimate the total number of false positives per square degree.
@@ -92,12 +89,12 @@ difference in flux between images. The filters are another potential source of
 such differences, as localized variation in coatings could lead to a similar
 dependence on object SED as described above. Based on the filter transmission
 curve specifications, the magnitude of this effect is potentially much larger
-than the differences between sensors. The filter bandpasses edges are permitted to
-vary by up to 1.5\%, which in g-band would cause photometric differences as
-large as 15-20 mmag for a significant number of objects. This could potentially
-create false positives at rates of 100s per square degree. Expected rates of
-astrophysical transients are of a similar order of magnitude, which makes this a
-significant concern.
+than the differences between sensors. The wavelengths of the filter bandpass
+edges are permitted to vary by up to 1.5\%, which in g-band would cause
+photometric differences as large as 15-20 mmag for a significant number of
+objects. This could potentially create false positives at rates of 100s per
+square degree. Expected rates of astrophysical transients are of a similar order
+of magnitude, which makes this a significant concern.
 
 \section{Analysis}
 
@@ -115,7 +112,7 @@ computed for a few stellar SEDs. The second scenario compares the fluxes from
 the baseline set of throughputs vs. the baseline with a substituted g-band
 filter transmission curve, which had been shifted in wavelength by 1\%. This is
 less than the specification on the filter transmission edges (OSS-REQ-0238,
-\code{filtUniformity\_grizy}), which allow up to 1.5\% variation in the bandpass
+\texttt{filtUniformity\_grizy}), which allow up to 1.5\% variation in the bandpass
 edges over the filter aperture.
 
 \begin{figure}
