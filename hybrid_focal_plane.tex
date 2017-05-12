@@ -1,13 +1,11 @@
-\documentclass[DM]{lsstdoc}
+\documentclass[DM,toc]{lsstdoc}
 
 \title[Heterogeneous Focal Plane]{Impact of a Heterogeneous Focal Plane on LSST Image Differencing}
 
-\author{Colin T. Slater, R. L. Jones, E. Bellm, and M. Juri\'c}
+\author{C. T. Slater, R. L. Jones, E. Bellm, and M. Juri\'c}
 
-\setDocRef{DM SST Study Report}
+\setDocRef{LDM-523}
 \date{\today}
-\setDocRevision{1.0}
-\setDocStatus{Final}
 
 \setDocAbstract{%
 The LSST heterogeneous focal plane is a potential source of false detections in image
@@ -24,15 +22,17 @@ curve currently permit a level of spatial variations that could lead to a
 significant number of false detections.
 }
 
+\setDocChangeRecord{%
+\addtohist{1}{2017-05-12}{Initial version.}{Colin Slater}
+}
+
 \begin{document}
 \maketitle
-\pagenumbering{arabic}
-
 
 \section{Executive Summary}
 
 If the LSST focal plane is comprised of sensors from multiple vendors, it is
-likely that they will differ in quantum efficiency as a function of wavelength.
+likely that they will differ in quantum efficiency as a function of wavelength \citedsp{Report-241}.
 Based on preliminary throughput curves derived in early 2017 from engineering
 models, the g-band exhibits the greatest difference between the two vendors,
 particularly in the shape of the throughput curve. Thus the measured flux of an
@@ -111,11 +111,13 @@ computed for a few stellar SEDs. The second scenario compares the fluxes from
 the baseline set of throughputs vs. the baseline with a substituted g-band
 filter transmission curve, which had been shifted in wavelength by 1\%. This is
 less than the specification on the filter transmission edges (OSS-REQ-0238,
-\texttt{filtUniformity\_grizy}), which allow up to 1.5\% variation in the bandpass
-edges over the filter aperture.
+\texttt{filtUniformity\_grizy}\ossreq{0238}), which allow up to 1.5\% variation
+in the bandpass edges over the filter aperture.
 
 \begin{figure}
+\centering{%
 \includegraphics[width=0.8\textwidth]{figures/QE_response_curves.pdf}
+}
 \caption{Normalized g-band response curves for sensors from the two vendors
 (top), and the difference of these two curves (bottom).
 \label{fig:QE_response_curves}
@@ -123,7 +125,9 @@ edges over the filter aperture.
 \end{figure}
 
 \begin{figure}
+\centering{%
 \includegraphics[width=0.8\textwidth]{figures/filter_response_curves.pdf}
+}
 \caption{Same as Figure~\ref{fig:QE_response_curves}, but for the baseline
 g-band filter and the same filter shifted by 1.0\% in wavelength.
 \label{fig:filter_response_curves}
@@ -131,7 +135,9 @@ g-band filter and the same filter shifted by 1.0\% in wavelength.
 \end{figure}
 
 \begin{figure}
+\centering{%
 \includegraphics[width=0.9\textwidth]{figures/delta_g_vs_color.pdf}
+}
 \caption{Difference in g-band flux between measurements made on sensors from
 different vendors (``Sensor QE'', red stars), and between two different
 realizations of the g-band filter (``Filter shift''), where one filter
@@ -156,7 +162,9 @@ difference. Figure~\ref{fig:delta_g_histogram} shows these histograms, where zer
 shift is set to be at the mean $g-i$ color of stars in the histogram.
 
 \begin{figure}
+\centering{%
 \includegraphics[width=0.9\textwidth]{figures/delta_g_histogram.pdf}
+}
 \caption{Distribution of g-band magnitude shifts that would be when stars with a
 realistic $g-i$ color distribution were observed in the sensor and filter
 scenarios described in Figure~\ref{fig:delta_g_vs_color}. The mean g-band
@@ -174,7 +182,9 @@ different sensors, and 9 mmag for the filter shift, but there are significant
 tails particularly for the filter case.
 
 \begin{figure}
+\centering{%
 \includegraphics[width=0.9\textwidth]{figures/delta_g_cumulative.pdf}
+}
 \caption{Cumulative distribution of Figure~\ref{fig:delta_g_histogram}. Roughly
 10-15\% of (unvarying) stars will exhibit $>7$ mmag g-band differences when
 images from the two sensor types are differenced, while 20\% of stars will show
@@ -208,7 +218,9 @@ well-measured and are significantly more likely to be detected as \DIASources
 when flux differences are present.
 
 \begin{figure}
+\centering{%
 \includegraphics[width=0.9\textwidth]{figures/false_positive_prob.pdf}
+}
 \caption{Probability that a star at a given magnitude (unvarying) will be
 measured as exceeding the $5\sigma$ threshold for \DIASources, if there is a
 coherent flux difference between the two images that are differenced. These
@@ -226,7 +238,9 @@ contributors, and fainter than this level individual measurement noise makes the
 flux differences unimportant.
 
 \begin{figure}
+\centering{%
 \includegraphics[width=0.9\textwidth]{figures/false_positive_differential.pdf}
+}
 \caption{This figure combines the false positive probabilities from
 Figure~\ref{fig:false_positive_prob} with the number density of objects at a
 given magnitude to show the total number of objects per square degree, per magnitude.
@@ -236,7 +250,9 @@ dashed lines show galaxies.
 \end{figure}
 
 \begin{figure}
+\centering{%
 \includegraphics[width=0.9\textwidth]{figures/fp_vs_flux_shift.pdf}
+}
 \caption{Cumulative counts of false positives as a function of coherent flux
 difference between observations. While shifts of up to 12 mmag would not produce
 more false positives than the irreducible background level of $\sim 65$ per
@@ -270,5 +286,7 @@ will scale with the total density of stars in a field, so at low Galactic
 latitudes this may increase by a factor of 10, but this is still negligibly
 small. The sensor differences can can thus be safely assumed to have no impact
 on the observed false positive rate.
+
+\bibliography{lsst}
 
 \end{document}
