@@ -14,7 +14,7 @@ efficiencies as a function of wavelength. We can evaluate the magnitude of this
 effect in a worst-case scenario (with no attempt at correction) by estimating
 the flux difference that would be measured between sensors, for a variety of
 stellar SEDs, and combining this with the expected density of sources at a given
-color and the probability that they will exceed the $5\sigma$ detection
+color and the probability that they will exceed the 5$\sigma$ detection
 threshold as a result of the measurement difference. Overall the sensor
 differences are small enough that only negligible numbers of false detections
 will result, but we note that the specifications for the filter transmission
@@ -66,11 +66,11 @@ We have evaluated the magnitude of the flux difference in g-band for various
 stellar SEDs. The shift can be ``calibrated out'' for stars of a mean color,
 since they will statistically set the zeropoint difference between the two
 exposures. But stars significantly bluer or redder than this mean color will
-still exhibit flux shifts, and these are generally of order 5-10 mmag at most.
+still exhibit flux shifts, and these are generally of order 5-10\,mmag at most.
 To determine how many stars fall into these red and blue wings, we use a
 measured stellar color distribution from SDSS. For most faint stars
 this shift will be lost in Poisson noise of the measurement, but bright stars
-will be measured well enough they will be more likely to cross the $5\sigma$
+will be measured well enough they will be more likely to cross the 5$\sigma$
 threshold to be reported as a \DIASources. We therefore modeled a distribution
 of observed stellar magnitudes plus a model of the photometric uncertainties for
 stars with a given brightness and spurious flux difference (from the heterogeneous focal
@@ -79,7 +79,7 @@ plane) to estimate the total number of false positives per square degree.
 The results from this exercise show that the worst-case false detection rates
 from the heterogeneous focal plane are roughly 1-10 per square degree, depending on
 whether the field is at low or high Galactic latitude. This is below the
-irreducible level of detections from pure background noise of roughly 60/sq deg.
+irreducible level of detections from pure background noise of roughly 60 per square degree.
 We therefore do not believe that the heterogeneous focal plane will present a problem
 for image differencing.
 
@@ -90,7 +90,7 @@ dependence on object SED as described above. Based on the filter transmission
 curve specifications, the magnitude of this effect is potentially much larger
 than the differences between sensors. The wavelengths of the filter bandpass
 edges are permitted to vary by up to 1.5\%, which in g-band would cause
-photometric differences as large as 15-20 mmag for a significant number of
+photometric differences as large as 15-20\,mmag for a significant number of
 objects. This could potentially create false positives at rates of 100s per
 square degree. Expected rates of astrophysical transients are of a similar order
 of magnitude, which makes this a significant concern.
@@ -151,7 +151,7 @@ comparison.
 \end{figure}
 
 The full-range of flux differences in Figure~\ref{fig:delta_g_vs_color} spans
-$\sim 20$ mmag for the sensor case and $\sim 50$ mmag for the filter case. This
+$\sim$20\,mmag for the sensor case and $\sim$50\,mmag for the filter case. This
 full span is not representative of the distribution of flux differences that
 will be seen in an average image, since stars of some average color will have
 this difference calibrated out when the images are photometrically scaled
@@ -169,16 +169,15 @@ shift is set to be at the mean $g-i$ color of stars in the histogram.
 realistic $g-i$ color distribution were observed in the sensor and filter
 scenarios described in Figure~\ref{fig:delta_g_vs_color}. The mean g-band
 difference is corrected for when the two (hypothetical) images are matched in flux,
-but very red or very blue stars will exhibit flux differences of up to $\sim 20$
-mmag.
+but very red or very blue stars will exhibit flux differences of up to $\sim$20\,mmag.
 \label{fig:delta_g_histogram}}
 \end{figure}
 
 A cumulative version of this information is shown in
 Figure~\ref{fig:delta_g_cumulative}. This shows the fraction of observed
 stars that will have an absolute flux difference (discarding sign) greater than
-a given level. The median difference is thus approximately 4 mmag for the
-different sensors, and 9 mmag for the filter shift, but there are significant
+a given level. The median difference is thus approximately 4\,mmag for the
+different sensors, and 9\,mmag for the filter shift, but there are significant
 tails particularly for the filter case.
 
 \begin{figure}
@@ -186,9 +185,9 @@ tails particularly for the filter case.
 \includegraphics[width=0.9\textwidth]{figures/delta_g_cumulative.pdf}
 }
 \caption{Cumulative distribution of Figure~\ref{fig:delta_g_histogram}. Roughly
-10-15\% of (unvarying) stars will exhibit $>7$ mmag g-band differences when
+10-15\% of (unvarying) stars will exhibit $>$7\,mmag g-band differences when
 images from the two sensor types are differenced, while 20\% of stars will show
-differences of $15$ mmag or greater if imaged by different filter bandpasses.
+differences of 15\,mmag or greater if imaged by different filter bandpasses.
 \label{fig:delta_g_cumulative}}
 \end{figure}
 
@@ -198,8 +197,8 @@ differences of $15$ mmag or greater if imaged by different filter bandpasses.
 The preceding section showed that some fraction of stars will exhibit spurious
 flux differences if the images being compared were taken with two different
 system throughputs. These differences are not large enough to consistently
-appear as $5\sigma$ detections in image differencing, but they will make stars
-more likely to cross this $5\sigma$ threshold due to Poisson noise. This is
+appear as 5$\sigma$ detections in image differencing, but they will make stars
+more likely to cross this 5$\sigma$ threshold due to Poisson noise. This is
 because the threshold for detection is set by the noise level of the image
 assuming that there is no mean flux difference. For a given threshold $\nu$
 (e.g. 5), noise level $\sigma$, and flux difference $\delta$, the fraction of
@@ -222,12 +221,12 @@ when flux differences are present.
 \includegraphics[width=0.9\textwidth]{figures/false_positive_prob.pdf}
 }
 \caption{Probability that a star at a given magnitude (unvarying) will be
-measured as exceeding the $5\sigma$ threshold for \DIASources, if there is a
+measured as exceeding the 5$\sigma$ threshold for \DIASources, if there is a
 coherent flux difference between the two images that are differenced. These
 false positives are rejected at better than 1 in $10^6$ when the two images have
 the same bandpass and sensor QE curves, but when there are variations in the
 transmission curve, bright stars will be significantly more likely to exceed the
-$5\sigma$ threshold.
+5$\sigma$ threshold.
 \label{fig:false_positive_prob}}
 \end{figure}
 
@@ -254,8 +253,8 @@ dashed lines show galaxies.
 \includegraphics[width=0.9\textwidth]{figures/fp_vs_flux_shift.pdf}
 }
 \caption{Cumulative counts of false positives as a function of coherent flux
-difference between observations. While shifts of up to 12 mmag would not produce
-more false positives than the irreducible background level of $\sim 65$ per
+difference between observations. While shifts of up to 12\,mmag would not produce
+more false positives than the irreducible background level of $\sim$65 per
 square degree, greater shifts will would rapidly produce significant numbers of
 false detections.
 \label{fig:fp_vs_flux_shift}}
@@ -263,8 +262,8 @@ false detections.
 
 The cumulative number of false positives (integrating each curve in
 Figure~\ref{fig:false_positive_differential}) is shown in
-Figure~\ref{fig:fp_vs_flux_shift}. For flux differences less than $\sim 14$
-mmag, the density of false positives is generally less than the density of false
+Figure~\ref{fig:fp_vs_flux_shift}. For flux differences less than $\sim$14\,mmag,
+the density of false positives is generally less than the density of false
 detections from background noise (blank sky). However, the false detection rate
 rises rapidly with increasing flux differences and can quickly grow into
 hundreds per square degree, at which point it would become a dominant
@@ -274,13 +273,13 @@ contributor to the overall false positive rate.
 
 These false positive densities in Figure~\ref{fig:fp_vs_flux_shift} can be combined
 with the previous section, where we estimated that (e.g.) 10\% of stars
-will have a 20 mmag flux difference under the varying filter scenario. The
+will have a 20\,mmag flux difference under the varying filter scenario. The
 overall number is thus roughly 10\% of 1,000 per square degree, which is still a
 significant concern, particularly since our filter difference scenario does not
 test the maximum possible variation permitted by the specification.
 
 The variation in sensor QE is much less significant; with 20\% of stars
-exhibiting greater than 5 mmag differences, the overall rate is less than one
+exhibiting greater than 5\,mmag differences, the overall rate is less than one
 false positive per square degree at mid-range Galactic latitudes. This number
 will scale with the total density of stars in a field, so at low Galactic
 latitudes this may increase by a factor of 10, but this is still negligibly
